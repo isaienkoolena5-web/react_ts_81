@@ -1,4 +1,6 @@
-.my-button {
+import styled from "@emotion/styled";
+
+export const MyButton = styled.button`
   width: 100%;
   /* Потом можно удалить */
   height: 100px;
@@ -10,8 +12,9 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-}
 
-.my-button:hover {
-  background-color: #270c20;
-}
+  &:hover {
+    background-color: #270c20;
+  }
+`;
+

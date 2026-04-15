@@ -1,11 +1,8 @@
 import { useState } from "react";
-
-import Button from "../../../components/Button/Button"
-import "./styles.css";
+import Button from "../Button/Button";
+import { ButtonWrapper, CounterWrapper, ResultContainer } from "./styles";
 
 function Counter() {
-  // type ArrayType<T> = T[];
-  // numbers:ArrayType<number>  = [3, 4, 5] --> number[]
   const [counter, setCounter] = useState<number>(0);
  
 
@@ -21,18 +18,18 @@ function Counter() {
   };
 
   return (
-    <div className="counter-wrapper">
-      <div className="button-wrapper">
+    <CounterWrapper>
+      <ButtonWrapper>
         <Button name="-" onButtonClick={onCounterMinus} id={0} />
-      </div>
-      <div className="result">{counter}</div>
-      <div className="button-wrapper">
+      </ButtonWrapper>
+      <ResultContainer>{counter}</ResultContainer>
+      <ButtonWrapper>
         <Button name="+" onButtonClick={onCounterPlus} id={0} />
-      </div>
-      <div className="button-wrapper">
+      </ButtonWrapper>
+      <ButtonWrapper>
         <Button name="Clear" onButtonClick={onCounterClear} id={0} />
-      </div>
-    </div>
+      </ButtonWrapper>
+    </CounterWrapper>
   );
 }
 

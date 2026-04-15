@@ -1,7 +1,9 @@
-import "./styles.css";
+import { v4 } from "uuid";
 import {animalData} from './data'
-import AnimalCard from "../../AnimalCard/AnimalCard";
+import AnimalCard from "../../components/AnimalCard/AnimalCard";
 import type { AnimalData } from "./type";
+import { Lessons07Wrapper } from "./styles";
+
 
 function Lesson07() {
 // Получаем массив JSX элементов на основе массива данных с помощью
@@ -9,15 +11,16 @@ function Lesson07() {
   const animalsCards = animalData.map((animal: AnimalData) => {
     return (
       <AnimalCard 
-        key={animal.id}
+        // key={animal.id}
+        key ={v4()}
         name={animal.name}
         species={animal.species}
         img={animal.image}
       />
     );
   });
-  return <div className="lesson07-wrapper">
+  return <Lessons07Wrapper>
     {animalsCards}
-  </div>;
+  </Lessons07Wrapper>;
 }
 export default Lesson07;
