@@ -1,11 +1,16 @@
 import styled from "@emotion/styled";
 
-export const MyButton = styled.button`
+interface MyButtonProps {
+  $isDanger?: boolean;
+}
+
+export const MyButton = styled.button<MyButtonProps>`
   width: 100%;
   /* Потом можно удалить */
   height: 100px;
   padding: 20px;
-  background-color: rgb(116, 29, 80);;
+   background-color: ${({ $isDanger }) =>
+    $isDanger ? "rgb(116, 29, 32)" : "rgb(116, 29, 80)"};
   color: #fff;
   font-size: 24px;
   font-weight: bold;

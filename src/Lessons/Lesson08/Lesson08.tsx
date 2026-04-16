@@ -30,7 +30,7 @@ function Lesson08() {
         <Text>Emotion example 2</Text>
         <Image src={Logo}/>
       </BoxInfo>
-      <Button name="Refactor" id={0}/>
+      <Button name="Refactor" />
   </div>
   )
 }

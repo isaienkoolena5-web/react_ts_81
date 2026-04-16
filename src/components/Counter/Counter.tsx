@@ -20,14 +20,14 @@ function Counter() {
   return (
     <CounterWrapper>
       <ButtonWrapper>
-        <Button name="-" onButtonClick={onCounterMinus} id={0} />
+        <Button name="-" onButtonClick={onCounterMinus} />
       </ButtonWrapper>
       <ResultContainer>{counter}</ResultContainer>
       <ButtonWrapper>
-        <Button name="+" onButtonClick={onCounterPlus} id={0} />
+        <Button name="+" onButtonClick={onCounterPlus}  />
       </ButtonWrapper>
       <ButtonWrapper>
-        <Button name="Clear" onButtonClick={onCounterClear} id={0} />
+        <Button name="Clear" onButtonClick={onCounterClear}  />
       </ButtonWrapper>
     </CounterWrapper>
   );

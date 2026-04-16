@@ -26,5 +26,8 @@ margin: 0;
 export const AnimalSptcies = styled.div`
 font-style: italic;
 `
+export const AnimalImage = styled.img`
+width: 200px;
+`
 
 

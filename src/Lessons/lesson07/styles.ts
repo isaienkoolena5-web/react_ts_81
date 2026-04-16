@@ -8,5 +8,5 @@ export const Lessons07Wrapper = styled.div`
   flex: 1;
   padding: 40px;
   background: rgb(233, 191, 237);
-`
+`;
 
