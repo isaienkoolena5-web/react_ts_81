@@ -22,3 +22,8 @@ export const InputElement = styled.input`
     color: rgb(121, 84, 206);
   }
 `;
+
+export const Error = styled.div`
+  height: 18px;
+  color: red;
+`;
