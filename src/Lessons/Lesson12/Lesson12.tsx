@@ -9,16 +9,18 @@ import { ContactForm, ContentWrapper, CreateButton, EmployeeSection, FieldContai
 const employeeSchema = Yup.object().shape({
   name: Yup.string()
     .required("Field name is required")
-    .min(2, "Min 2 symbols"),
+    .min(2, "Min 2 symbols")
+    .max(50, "Max 50 symbols"),
   surname: Yup.string()
     .required("Field surname is required")
-    .min(2, "Min 2 symbols"),
+    .max(50, "Max 15 symbols"),
   age: Yup.number()
     .typeError("Must be a number")
     .required("Field age is required")
     .min(18, "Min age 18")
-    .max(99, "Max age 99"),
+    .max(80, "Max age 80"),
   job: Yup.string() 
+  .max(30, "Max 30 symbols"),
 });
 const EmployeePage: React.FC = () => {
   const [submittedData, setSubmittedData] = useState<EmployeeData | null>(null);
@@ -54,7 +56,7 @@ const EmployeePage: React.FC = () => {
       placeholder="Enter employee Name"
       value={formik.values.name}
       onChange={formik.handleChange}
-      onBlur={formik.handleBlur} // Добавь для отслеживания касания
+      onBlur={formik.handleBlur} // для отслеживания касания
     />
     {/* Ошибка покажется только если поле 'трогали' И есть текст ошибки */}
     {formik.touched.name && formik.errors.name && (
@@ -153,20 +155,6 @@ const EmployeePage: React.FC = () => {
 
 
 
-  
-//   const [formErrors, setFormErrors] = useState<FormErrors>({});
-
-//   // Обработчик изменения инпутов
-//   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-//     const { id, value } = e.target;
-//     // Обновляем данные формы
-//     setFormData(prev => ({ ...prev, [id]: value }));
-    
-//     // Если пользователь начал вводить данные в поле, убираем ошибку для этого поля.
-//     if (formErrors[id as keyof EmployeeData]) {
-//       setFormErrors(prev => ({ ...prev, [id]: undefined }));
-//     }
-//   };
 
 
 
@@ -175,124 +163,3 @@ const EmployeePage: React.FC = () => {
 
 
 
-
-// import { Button, LoginFormComponent, Style, Title } from "./styles";
-// import { useState, type ChangeEvent } from "react";
-// import { useFormik } from "formik";
-// import type { LoginFormValues } from "./types";
-
-// function Lesson12() {
-//     const [inputValue, setInputValue] = useState<string>("");
-//       const [tasks, setTasks] = useState<string[]>([]);
-//       const inputChange = (event: ChangeEvent<HTMLInputElement>) => {
-//         setInputValue(event.target.value);
-//       };
-//       const addTask = () => {
-//         if (inputValue.trim() === "") return;
-    
-//         setTasks([...tasks, inputValue]);
-    
-//         //Очищаем поле ввода
-//         setInputValue("");
-//       };
-    
-//       const deleteTask = (indexToDelete: number) => {
-//         setTasks(tasks.filter((_, index) => index !== indexToDelete));
-//       };
-      
-//       const formik = useFormik({
-      
-//           initialValues: {
-//             name: "",
-//             surname: "",
-//             age: "",
-//             jobPosition: "",
-//           } as LoginFormValues,
-//             // Привязка валидационной схемы к формику
-//         //   validationSchema: schema,
-//             validateOnChange: false,
-      
-//           // В параметре submit принимает значение из полей в момент события  submit
-//           onSubmit: (values: LoginFormValues) => {
-//             console.table(values);
-//           },
-//         });
-//     return (
-//         <LoginFormComponent onSubmit={formik.handleSubmit}>
-// <Style>
-//      <Title>Create Employee</Title>
-           
-
-//                  <Input 
-//         name="name"
-//         label="Name"
-//         placeholder="Enter your name"
-//         value={formik.values.name}
-//         onChange={formik.handleChange}
-//         error = {formik.errors.name}
-//       />
-//                        <Input 
-//         name="surname"
-//         label="Surname"
-//         placeholder="Enter your Surname"
-//         value={formik.values.surname}
-//         onChange={formik.handleChange}
-//         error = {formik.errors.surname}
-//       />
-//         <Input
-//               name="age"
-//               label="age"
-//               placeholder="Enter your age"
-//               value={formik.values.age}
-//               onChange={formik.handleChange}
-//                error = {formik.errors.age}
-//             />
-
-//              <Input
-//               name="jobPosition"
-//               label="jobPosition"
-//               placeholder="Enter employee Position"
-//               value={formik.values.jobPosition}
-//               onChange={formik.handleChange}
-//                error = {formik.errors.jobPosition}
-//             />      
-
-            
-            
-              
-
-//                     <Button  type="submit">Create</Button>
-          
-
-//                 {/* <div id="infoCard" class="info-card hidden">
-//                     <div class="info-block">
-//                         <span class="info-label">Name</span>
-//                         <span id="cardName" class="info-value"></span>
-//                     </div>
-
-//                     <div class="info-block">
-//                         <span class="info-label">Surname</span>
-//                         <span id="cardSurname" class="info-value"></span>
-//                     </div>
-
-//                     <div class="info-block">
-//                         <span class="info-label">Age</span>
-//                         <span id="cardAge" class="info-value"></span>
-//                     </div>
-
-//                     <div class="info-block">
-//                         <span class="info-label">Job Position</span>
-//                         <span id="cardJob" class="info-value"></span>
-//                     </div>
-//                 </div>
-   
-
-//             <p id="errorMessage" class="error-message"></p> */}
-    
-   
-// </Style>
-//  </LoginFormComponent>
-
-//     )
-// }   
-// export default Lesson12;

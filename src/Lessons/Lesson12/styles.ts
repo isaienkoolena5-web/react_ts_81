@@ -142,8 +142,8 @@ export const InfoLabel= styled.div  `
 color: #6F6F6F;
     width: 336px;
     height: 21px;
-    font-size: 20px;
-    line-height: 130%;
+    font-size: 18px;
+    line-height: 10%;
 `;
  
 
